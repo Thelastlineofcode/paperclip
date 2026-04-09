@@ -75,7 +75,7 @@
     "name": "ping",
     "schedule": "*/5 * * * *",
     "type": "command",
-    "command": "echo \"ann-engine alive — $(date)\"",
+    "command": "echo \"adriatic-neural-network alive — $(date)\"",
     "enabled": true
   }
 ]

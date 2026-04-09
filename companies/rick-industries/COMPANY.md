@@ -3,13 +3,13 @@ schema: agentcompanies/v1
 kind: company
 slug: rick-industries
 name: Rick Industries
-description: Ann Engine — 20-agent orchestration mesh powering Levite, Jouvae, and the portfolio control plane
+description: Adriatic Neural Network — 20-agent orchestration mesh powering Levite, Jouvae, and the portfolio control plane
 version: 1.0.0
 authors:
   - name: Thelastlineofcode
 goals:
   - Operate a fully autonomous multi-project engineering organization
-  - Route all work through the Ann Engine agent hierarchy with cost governance
+  - Route all work through the Adriatic Neural Network agent hierarchy with cost governance
   - Run zero-idle infrastructure — heartbeats, not servers
 includes:
   - agents/evil-morty/AGENTS.md
@@ -19,7 +19,7 @@ includes:
   - agents/beth/AGENTS.md
   - teams/engineering/TEAM.md
   - teams/lifeos/TEAM.md
-  - projects/ann-engine/PROJECT.md
+  - projects/adriatic-neural-network/PROJECT.md
 requirements:
   secrets:
     - ANTHROPIC_API_KEY
@@ -43,7 +43,7 @@ metadata:
 
 # Rick Industries
 
-Ann Engine is a 20-agent orchestration mesh built on Paperclip. It manages three active products — Levite (astrology SaaS), Jouvae (Caribbean platform), and xcellent1 — across a three-machine physical topology.
+Adriatic Neural Network is a 20-agent orchestration mesh built on Paperclip. It manages three active products — Levite (astrology SaaS), Jouvae (Caribbean platform), and xcellent1 — across a three-machine physical topology.
 
 ## Hierarchy
 
@@ -63,7 +63,7 @@ Evil Morty (CEO, L5)
     └── Jerry (Admin, L2)
 ```
 
-## Ann Engine Extensions
+## Adriatic Neural Network Extensions
 
 This company package extends Paperclip with four Ann-specific layers:
 
@@ -76,7 +76,7 @@ This company package extends Paperclip with four Ann-specific layers:
 
 | Project | Status | Owner |
 |---------|--------|-------|
-| Ann Engine (ricksgarage) | Active | Rick |
+| Adriatic Neural Network (Thelastlineofcode/ricksgarage) | Active | Rick |
 | Levite | Active — Dashboard shipped | Morty/Beth |
 | Jouvae | Empathize | Summer |
 | Portfolio Control Plane | Active | Unity |

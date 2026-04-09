@@ -3,7 +3,7 @@ schema: agentcompanies/v1
 kind: team
 slug: engineering
 name: Engineering
-description: Product and platform engineering — Levite, Jouvae, Ann Engine
+description: Product and platform engineering — Levite, Jouvae, Adriatic Neural Network
 manager: ../../../agents/rick/AGENTS.md
 includes:
   - ../../../agents/morty/AGENTS.md

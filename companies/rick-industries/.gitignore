@@ -1,0 +1,5 @@
+.env
+data/
+logs/
+traefik-config/*.yaml
+traefik-config/*.yml

@@ -1,8 +1,8 @@
 ---
 schema: agentcompanies/v1
 kind: project
-slug: ann-engine
-name: Ann Engine
+slug: adriatic-neural-network
+name: Adriatic Neural Network
 description: 20-agent orchestration mesh — rickd API, dual RAG brain, agent hierarchy
 owner: rick
 tags:
@@ -11,7 +11,7 @@ tags:
   - active
 ---
 
-# Ann Engine
+# Adriatic Neural Network
 
 **Repo:** Thelastlineofcode/ricksgarage  
 **Status:** Active — P0 tracks in progress

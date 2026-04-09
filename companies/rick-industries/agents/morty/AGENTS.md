@@ -22,7 +22,7 @@ tags:
 
 Does the work. ATDD-first: writes acceptance tests before code. Owns wiki synthesis layer — every task produces two outputs: the deliverable + wiki page updates.
 
-**Scope:** Implementation across all repos — Rust/Axum (Levite backend), Leptos/WASM (Levite frontend), Go (Ann Engine workers), TypeScript (tooling).
+**Scope:** Implementation across all repos — Rust/Axum (Levite backend), Leptos/WASM (Levite frontend), Go (Adriatic Neural Network workers), TypeScript (tooling).
 
 **Constraints:**
 - Never merges without green tests
