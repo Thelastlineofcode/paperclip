@@ -1,0 +1,68 @@
+[
+  {
+    "name": "on-github-issue-opened",
+    "watch_path": "/github/webhook",
+    "filter": { "action": "opened" },
+    "actions": [
+      {
+        "type": "agent",
+        "agent": "unity",
+        "job": "A new GitHub issue was opened. Read the payload and determine if it should be assigned to rick, morty, or beth based on label and content:\n{{body}}"
+      }
+    ],
+    "enabled": true
+  },
+  {
+    "name": "on-p0-label",
+    "watch_path": "/github/webhook",
+    "filter": { "action": "labeled", "label": "priority:P0" },
+    "actions": [
+      {
+        "type": "agent",
+        "agent": "evil-morty",
+        "job": "A P0 issue was just labeled. Read the payload, triage it, and create a mission in rickd if one doesn't already exist:\n{{body}}"
+      }
+    ],
+    "enabled": true
+  },
+  {
+    "name": "on-pr-opened",
+    "watch_path": "/github/webhook",
+    "filter": { "action": "opened", "resource": "pull_request" },
+    "actions": [
+      {
+        "type": "agent",
+        "agent": "rick",
+        "job": "A pull request was opened. Read agents/rick/SOUL.md for context, then review the PR payload and add a triage comment:\n{{body}}"
+      }
+    ],
+    "enabled": false
+  },
+  {
+    "name": "on-rickd-mission-complete",
+    "watch_path": "/webhook",
+    "filter": { "event": "mission.complete" },
+    "actions": [
+      {
+        "type": "agent",
+        "agent": "unity",
+        "job": "A mission just completed. Emit a DAIR signal and check if any dependent missions can now be unblocked:\n{{body}}"
+      }
+    ],
+    "enabled": true
+  },
+  {
+    "name": "forward-p0-to-discord",
+    "watch_path": "/github/webhook",
+    "filter": { "action": "labeled", "label": "priority:P0" },
+    "actions": [
+      {
+        "type": "webhook",
+        "url": "{{DISCORD_WEBHOOK_URL}}",
+        "method": "POST",
+        "vars": { "source": "github", "priority": "P0" }
+      }
+    ],
+    "enabled": false
+  }
+]
