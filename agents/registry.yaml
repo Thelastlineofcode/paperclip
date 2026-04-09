@@ -1,0 +1,53 @@
+# Ann Engine — Agent Registry
+# Org-level agent roster for Thelastlineofcode (Rick Industries)
+# Per-agent detail lives in companies/rick-industries/agents/<slug>/AGENTS.md
+# Refs #800 (Paperclip pivot), #803 (Phase 0)
+
+schema: ann/agents/v1
+org: Thelastlineofcode
+
+agents:
+  - id: evil-morty
+    label: agent:evil-morty
+    tier: L5
+    role: executive
+    org: Thelastlineofcode
+    package: companies/rick-industries/agents/evil-morty/AGENTS.md
+    heartbeat_interval: 30s
+    model_tier: T1
+
+  - id: rick
+    label: agent:rick
+    tier: L5
+    role: architecture
+    org: Thelastlineofcode
+    package: companies/rick-industries/agents/rick/AGENTS.md
+    heartbeat_interval: 60s
+    model_tier: T1
+
+  - id: unity
+    label: agent:unity
+    tier: L5
+    role: coordination
+    org: Thelastlineofcode
+    package: companies/rick-industries/agents/unity/AGENTS.md
+    heartbeat_interval: 30s
+    model_tier: T1
+
+  - id: morty
+    label: agent:morty
+    tier: L3
+    role: dev
+    org: Thelastlineofcode
+    package: companies/rick-industries/agents/morty/AGENTS.md
+    heartbeat_interval: 60s
+    model_tier: T2
+
+  - id: beth
+    label: agent:beth
+    tier: L4
+    role: infra
+    org: Thelastlineofcode
+    package: companies/rick-industries/agents/beth/AGENTS.md
+    heartbeat_interval: 60s
+    model_tier: T2
