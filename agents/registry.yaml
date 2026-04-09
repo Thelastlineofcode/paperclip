@@ -1,18 +1,18 @@
-# Ann Engine — Agent Registry
-# Org-level agent roster for Thelastlineofcode (Rick Industries)
-# Per-agent detail lives in companies/rick-industries/agents/<slug>/AGENTS.md
-# Refs #800 (Paperclip pivot), #803 (Phase 0)
+# Adriatic Neural Network — Agent Registry
+# Org-level agent roster for Thelastlineofcode
+# Per-agent detail: companies/ann-industries/agents/<slug>/AGENTS.md
+# Refs #800, #803, #810
 
 schema: ann/agents/v1
 org: Thelastlineofcode
 
 agents:
+  # ── Executive (L5) ───────────────────────────────────────────────────────────
   - id: evil-morty
-    label: agent:evil-morty
+    label: agent:evil_morty
     tier: L5
     role: executive
-    org: Thelastlineofcode
-    package: companies/rick-industries/agents/evil-morty/AGENTS.md
+    package: companies/ann-industries/agents/evil-morty/AGENTS.md
     heartbeat_interval: 30s
     model_tier: T1
 
@@ -20,8 +20,7 @@ agents:
     label: agent:rick
     tier: L5
     role: architecture
-    org: Thelastlineofcode
-    package: companies/rick-industries/agents/rick/AGENTS.md
+    package: companies/ann-industries/agents/rick/AGENTS.md
     heartbeat_interval: 60s
     model_tier: T1
 
@@ -29,25 +28,83 @@ agents:
     label: agent:unity
     tier: L5
     role: coordination
-    org: Thelastlineofcode
-    package: companies/rick-industries/agents/unity/AGENTS.md
+    package: companies/ann-industries/agents/unity/AGENTS.md
     heartbeat_interval: 30s
     model_tier: T1
 
+  # ── Lead (L4) ────────────────────────────────────────────────────────────────
+  - id: beth
+    label: agent:beth
+    tier: L4
+    role: engineering-lead
+    package: companies/ann-industries/agents/beth/AGENTS.md
+    heartbeat_interval: 60s
+    model_tier: T1
+
+  # ── Core Tech (L3) ───────────────────────────────────────────────────────────
   - id: morty
     label: agent:morty
     tier: L3
     role: dev
-    org: Thelastlineofcode
-    package: companies/rick-industries/agents/morty/AGENTS.md
+    package: companies/ann-industries/agents/morty/AGENTS.md
     heartbeat_interval: 60s
     model_tier: T2
 
-  - id: beth
-    label: agent:beth
-    tier: L4
-    role: infra
-    org: Thelastlineofcode
-    package: companies/rick-industries/agents/beth/AGENTS.md
+  - id: meeseeks
+    label: agent:meeseeks
+    tier: L3
+    role: qa
+    package: companies/ann-industries/agents/meeseeks/AGENTS.md
+    heartbeat_interval: 60s
+    model_tier: T2
+    spawn_only: true
+
+  - id: birdperson
+    label: agent:birdperson
+    tier: L3
+    role: devops
+    package: companies/ann-industries/agents/birdperson/AGENTS.md
+    heartbeat_interval: 60s
+    model_tier: T2
+
+  # ── Quality (L3) ─────────────────────────────────────────────────────────────
+  - id: irie
+    label: agent:irie
+    tier: L3
+    role: quality-gate
+    package: companies/ann-industries/agents/irie/AGENTS.md
+    heartbeat_interval: 60s
+    model_tier: T2
+
+  - id: ox
+    label: agent:ox
+    tier: L3
+    role: dev
+    package: companies/ann-industries/agents/ox/AGENTS.md
+    heartbeat_interval: 60s
+    model_tier: T2
+
+  - id: sister-nancy
+    label: agent:sister_nancy
+    tier: L3
+    role: design
+    package: companies/ann-industries/agents/sister-nancy/AGENTS.md
+    heartbeat_interval: 60s
+    model_tier: T2
+
+  # ── Life OS (L3) ─────────────────────────────────────────────────────────────
+  - id: summer
+    label: agent:summer
+    tier: L3
+    role: product
+    package: companies/ann-industries/agents/summer/AGENTS.md
+    heartbeat_interval: 60s
+    model_tier: T2
+
+  - id: squanchy
+    label: agent:squanchy
+    tier: L3
+    role: growth
+    package: companies/ann-industries/agents/squanchy/AGENTS.md
     heartbeat_interval: 60s
     model_tier: T2

@@ -1,0 +1,16 @@
+[
+  { "name": "ann-heartbeat",     "schedule": "*/1 * * * *", "type": "agent", "job": "Read agents/evil-morty/HEARTBEAT.md and complete the tasks described there.", "agent": "evil-morty", "enabled": true },
+  { "name": "rick-heartbeat",    "schedule": "*/1 * * * *", "type": "agent", "job": "Read agents/rick/HEARTBEAT.md and complete the tasks described there.", "agent": "rick", "enabled": true },
+  { "name": "unity-heartbeat",   "schedule": "*/1 * * * *", "type": "agent", "job": "Read agents/unity/HEARTBEAT.md and complete the tasks described there.", "agent": "unity", "enabled": true },
+  { "name": "morty-heartbeat",   "schedule": "*/1 * * * *", "type": "agent", "job": "Read agents/morty/HEARTBEAT.md and complete the tasks described there.", "agent": "morty", "enabled": true },
+  { "name": "beth-heartbeat",    "schedule": "*/1 * * * *", "type": "agent", "job": "Read agents/beth/HEARTBEAT.md and complete the tasks described there.", "agent": "beth", "enabled": true },
+  { "name": "birdperson-heartbeat", "schedule": "*/1 * * * *", "type": "agent", "job": "Read agents/birdperson/HEARTBEAT.md and complete the tasks described there.", "agent": "birdperson", "enabled": true },
+  { "name": "irie-heartbeat",    "schedule": "*/1 * * * *", "type": "agent", "job": "Read agents/irie/HEARTBEAT.md and complete the tasks described there.", "agent": "irie", "enabled": true },
+  { "name": "ox-heartbeat",      "schedule": "*/1 * * * *", "type": "agent", "job": "Read agents/ox/HEARTBEAT.md and complete the tasks described there.", "agent": "ox", "enabled": true },
+  { "name": "summer-heartbeat",  "schedule": "*/1 * * * *", "type": "agent", "job": "Read agents/summer/HEARTBEAT.md and complete the tasks described there.", "agent": "summer", "enabled": true },
+  { "name": "rick-arch-review",  "schedule": "0 9 * * 1",   "type": "agent", "job": "Read agents/rick/SOUL.md for context, then read agents/rick/jobs/weekly-arch-review.md and complete that task.", "agent": "rick", "enabled": true },
+  { "name": "unity-sprint-sync", "schedule": "0 8 * * 1",   "type": "agent", "job": "Read agents/unity/SOUL.md for context, then read agents/unity/jobs/sprint-sync.md and complete that task.", "agent": "unity", "enabled": true },
+  { "name": "morty-wiki-update", "schedule": "0 18 * * *",  "type": "agent", "job": "Read agents/morty/SOUL.md for context, then read agents/morty/jobs/wiki-update.md and complete that task.", "agent": "morty", "enabled": true },
+  { "name": "birdperson-infra-audit", "schedule": "0 7 * * *", "type": "agent", "job": "Read agents/birdperson/SOUL.md for context, then run full infra health check: rickd, NATS, Qdrant, Neo4j, Fly.io. Report anomalies as GitHub issues.", "agent": "birdperson", "enabled": true },
+  { "name": "ping", "schedule": "*/5 * * * *", "type": "command", "command": "echo \"adriatic-neural-network alive — $(date)\"", "enabled": true }
+]

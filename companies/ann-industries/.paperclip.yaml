@@ -1,0 +1,216 @@
+schema: paperclip/v1
+# Ann Industries — Paperclip vendor extension
+# Adriatic Neural Network topology routing, adapter configs, heartbeat schedules, budget gates
+
+# ── Topology ─────────────────────────────────────────────────────────────────
+topology:
+  machines:
+    studio:
+      label: STUDIO
+      description: Mac mini c-137 — primary orchestration, Claude Pro, heavy LLM tasks
+      heartbeat_base_url: http://localhost:9000
+      preferred_agents: [rick, unity, evil-morty]
+      model_tier: T1
+    c137:
+      label: c-137
+      description: Linux server — continuous workers, Ollama local inference, Pi agent hub
+      heartbeat_base_url: http://localhost:9001
+      preferred_agents: [morty, beth, birdperson, meeseeks]
+      model_tier: T2_T3
+    portal:
+      label: PORTAL
+      description: Dell laptop — mobile ops, secondary inference, dev environment
+      heartbeat_base_url: http://localhost:9002
+      preferred_agents: [morty, summer]
+      model_tier: T2
+
+# ── Agent Adapters ────────────────────────────────────────────────────────────
+agents:
+  rick:
+    adapter:
+      type: claude_local
+      config:
+        model: claude-sonnet-4-6
+        machine: studio
+    inputs:
+      env:
+        ANTHROPIC_API_KEY:
+          kind: secret
+          requirement: required
+        RICKD_API_KEY:
+          kind: secret
+          requirement: required
+        NEO4J_URI:
+          kind: secret
+          requirement: required
+
+  unity:
+    adapter:
+      type: claude_local
+      config:
+        model: claude-sonnet-4-6
+        machine: studio
+    inputs:
+      env:
+        ANTHROPIC_API_KEY:
+          kind: secret
+          requirement: required
+        QDRANT_URL:
+          kind: plain
+          requirement: optional
+          default: http://localhost:6333
+
+  morty:
+    adapter:
+      type: claude_local
+      config:
+        model: claude-haiku-4-5-20251001
+        machine: c137
+    inputs:
+      env:
+        ANTHROPIC_API_KEY:
+          kind: secret
+          requirement: required
+        GITHUB_TOKEN:
+          kind: secret
+          requirement: required
+
+  beth:
+    adapter:
+      type: claude_local
+      config:
+        model: claude-haiku-4-5-20251001
+        machine: c137
+    inputs:
+      env:
+        ANTHROPIC_API_KEY:
+          kind: secret
+          requirement: required
+        FLY_API_TOKEN:
+          kind: secret
+          requirement: optional
+
+  evil-morty:
+    adapter:
+      type: claude_local
+      config:
+        model: claude-opus-4-6
+        machine: studio
+    inputs:
+      env:
+        ANTHROPIC_API_KEY:
+          kind: secret
+          requirement: required
+
+# ── Heartbeat Schedules ───────────────────────────────────────────────────────
+routines:
+  rick-heartbeat:
+    agent: rick
+    triggers:
+      - kind: schedule
+        cronExpression: "*/1 * * * *"   # every 60s
+        timezone: America/Chicago
+    endpoint: /api/heartbeat/rick
+
+  unity-heartbeat:
+    agent: unity
+    triggers:
+      - kind: schedule
+        cronExpression: "*/1 * * * *"   # every 30s (cron min = 60s; use interval in rickd)
+        timezone: America/Chicago
+    endpoint: /api/heartbeat/unity
+    metadata:
+      ann_interval_override: 30s        # rickd respects this for sub-minute firing
+
+  morty-heartbeat:
+    agent: morty
+    triggers:
+      - kind: schedule
+        cronExpression: "*/1 * * * *"
+        timezone: America/Chicago
+    endpoint: /api/heartbeat/morty
+
+  beth-heartbeat:
+    agent: beth
+    triggers:
+      - kind: schedule
+        cronExpression: "*/1 * * * *"
+        timezone: America/Chicago
+    endpoint: /api/heartbeat/beth
+
+  ann-heartbeat:
+    agent: evil-morty
+    triggers:
+      - kind: schedule
+        cronExpression: "*/1 * * * *"
+        timezone: America/Chicago
+    endpoint: /api/heartbeat/ann
+    metadata:
+      ann_interval_override: 30s
+
+# ── LLM Cost Registry ─────────────────────────────────────────────────────────
+model_registry:
+  tiers:
+    T1:
+      label: Strategic
+      models:
+        - provider: anthropic
+          model: claude-opus-4-6
+          cost_per_mtok_out: 15.00
+        - provider: anthropic
+          model: claude-sonnet-4-6
+          cost_per_mtok_out: 3.00
+        - provider: google
+          model: gemini-2.5-pro
+          cost_per_mtok_out: 10.00
+    T2:
+      label: Execution
+      models:
+        - provider: anthropic
+          model: claude-haiku-4-5-20251001
+          cost_per_mtok_out: 1.25
+        - provider: openai
+          model: gpt-4o-mini
+          cost_per_mtok_out: 0.60
+    T3:
+      label: Local
+      models:
+        - provider: ollama
+          model: phi4-mini
+          cost_per_mtok_out: 0.00
+        - provider: ollama
+          model: gemma3:4b
+          cost_per_mtok_out: 0.00
+        - provider: ollama
+          model: qwen3.5:0.8b
+          cost_per_mtok_out: 0.00
+
+  routing_rules:
+    - condition: task_type == "heartbeat"
+      tier: T3
+    - condition: task_type == "goal_decompose"
+      tier: T1
+    - condition: task_type == "tool_execution"
+      tier: T2
+    - condition: task_type == "embedding"
+      tier: T3
+    - condition: estimated_cost_usd > 0.50
+      action: require_approval_gate
+
+# ── Unity Kernel Memory ───────────────────────────────────────────────────────
+memory:
+  unity_kernel:
+    enabled: true
+    inject_on_task_start: true
+    qdrant_url: http://localhost:6333
+    collections:
+      - skill_library
+      - ann_memory
+      - levite_docs
+    neo4j_bolt: bolt://localhost:7687
+    context_budget_tokens: 2000
+    token_discipline:
+      L0: 200    # project context — every session
+      L1: 2000   # wiki/index.md — session start
+      L2: 5000   # relevant wiki pages — on demand
+      L3: 20000  # full article — explicit request only
