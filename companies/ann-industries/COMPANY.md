@@ -3,8 +3,8 @@ schema: agentcompanies/v1
 kind: company
 slug: ann-industries
 name: Ann Industries
-description: Adriatic Neural Network — 20-agent orchestration mesh powering Levite, Jouvae, and the portfolio control plane
-version: 1.0.0
+description: Adriatic Neural Network — 11-agent orchestration mesh powering Levite, Jouvae, and the portfolio control plane
+version: 2.0.0
 authors:
   - name: Thelastlineofcode
 goals:
@@ -12,14 +12,17 @@ goals:
   - Route all work through the Adriatic Neural Network agent hierarchy with cost governance
   - Run zero-idle infrastructure — heartbeats, not servers
 includes:
-  - agents/evil-morty/AGENTS.md
-  - agents/rick/AGENTS.md
-  - agents/unity/AGENTS.md
-  - agents/morty/AGENTS.md
-  - agents/beth/AGENTS.md
-  - teams/engineering/TEAM.md
-  - teams/lifeos/TEAM.md
-  - projects/adriatic-neural-network/PROJECT.md
+  - agents/dorothy/AGENTS.md
+  - agents/marcus/AGENTS.md
+  - agents/keisha/AGENTS.md
+  - agents/ox/AGENTS.md
+  - agents/tanisha/AGENTS.md
+  - agents/camille/AGENTS.md
+  - agents/irie/AGENTS.md
+  - agents/andre/AGENTS.md
+  - agents/sister-nancy/AGENTS.md
+  - agents/lois/AGENTS.md
+  - agents/curtis/AGENTS.md
 requirements:
   secrets:
     - ANTHROPIC_API_KEY
@@ -43,25 +46,38 @@ metadata:
 
 # Ann Industries
 
-Adriatic Neural Network is a 20-agent orchestration mesh built on Paperclip. It manages three active products — Levite (astrology SaaS), Jouvae (Caribbean platform), and xcellent1 — across a three-machine physical topology.
+Adriatic Neural Network is an 11-agent orchestration mesh built on Paperclip. It manages three active products — Levite (astrology SaaS), Jouvae (Caribbean platform), and xcellent1 — across a three-machine physical topology.
 
 ## Hierarchy
 
 ```
-Evil Morty (CEO, L5)
-├── Rick (CTO/Architect, L5)
-│   ├── Beth (Infra, L4)
-│   │   └── Birdperson (DevOps, L3)
-│   ├── Morty (Dev, L3)
-│   ├── Poopybutthole (Security, L4)
-│   ├── Pencilvester (Tech Debt, L3)
-│   └── Meeseeks (Ephemeral workers, L2)
-└── Unity (LifeOS Orchestrator, L5)
-    ├── Summer (Product, L3)
-    ├── Dr. Wong (Coach, L3)
-    ├── Squanchy (Growth, L3)
-    └── Jerry (Admin, L2)
+Dorothy (Platform Orchestrator, L4)
+├── Marcus (Platform Architect, L4)
+├── Keisha (Go+gRPC Dev, L3)
+├── Ox (Code Fix & Refactor, L3)
+├── Tanisha (QA & Test Automation, L3)
+├── Camille (Platform Operations, L3)
+├── Irie (Quality Gate, L3)
+├── Andre (Documentation, L3)
+├── Sister Nancy (Design & UX, L3)
+├── Lois (Guest Concierge, L3)
+└── Curtis (Partner Operations, L3)
 ```
+
+## Capability Map (from deprecated ricksgarage agents)
+
+| Deprecated | Ann Agent | Capability |
+|------------|-----------|------------|
+| unity | dorothy | Cross-team coordination, sprint sync, dependency gating |
+| rick | marcus | Architecture review, ADRs, contract sign-off |
+| morty | keisha + ox | TDD implementation, code fix, refactoring |
+| meeseeks | tanisha | Ephemeral QA workers, regression suites |
+| birdperson | camille | Infra health checks, deployments, rollback |
+| beth | irie | Quality gate, PR merge control |
+| (new) | andre | Wiki synthesis, docs from merged PRs |
+| (new) | sister-nancy | Design tokens, WCAG-AA accessibility |
+| (new) | lois | Guest support, escalation paths |
+| (new) | curtis | Partner onboarding, workflow ops |
 
 ## Adriatic Neural Network Extensions
 
@@ -76,7 +92,7 @@ This company package extends Paperclip with four Ann-specific layers:
 
 | Project | Status | Owner |
 |---------|--------|-------|
-| Adriatic Neural Network (Thelastlineofcode/ricksgarage) | Active | Rick |
-| Levite | Active — Dashboard shipped | Morty/Beth |
-| Jouvae | Empathize | Summer |
-| Portfolio Control Plane | Active | Unity |
+| Adriatic Neural Network (Thelastlineofcode/ricksgarage) | Active | Marcus / Dorothy |
+| Levite | Active — Dashboard shipped | Keisha / Camille |
+| Jouvae | Empathize | Dorothy |
+| Portfolio Control Plane | Active | Dorothy |

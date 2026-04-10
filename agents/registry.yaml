@@ -7,73 +7,30 @@ schema: ann/agents/v1
 org: Thelastlineofcode
 
 agents:
-  # ── Executive (L5) ───────────────────────────────────────────────────────────
-  - id: evil-morty
-    label: agent:evil_morty
-    tier: L5
-    role: executive
-    package: companies/ann-industries/agents/evil-morty/AGENTS.md
-    heartbeat_interval: 30s
-    model_tier: T1
-
-  - id: rick
-    label: agent:rick
-    tier: L5
-    role: architecture
-    package: companies/ann-industries/agents/rick/AGENTS.md
-    heartbeat_interval: 60s
-    model_tier: T1
-
-  - id: unity
-    label: agent:unity
-    tier: L5
-    role: coordination
-    package: companies/ann-industries/agents/unity/AGENTS.md
-    heartbeat_interval: 30s
-    model_tier: T1
-
   # ── Lead (L4) ────────────────────────────────────────────────────────────────
-  - id: beth
-    label: agent:beth
+  - id: dorothy
+    label: agent:dorothy
     tier: L4
-    role: engineering-lead
-    package: companies/ann-industries/agents/beth/AGENTS.md
-    heartbeat_interval: 60s
+    role: platform-orchestrator
+    package: companies/ann-industries/agents/dorothy/AGENTS.md
+    heartbeat_interval: 2m
+    model_tier: T1
+
+  - id: marcus
+    label: agent:marcus
+    tier: L4
+    role: platform-architect
+    package: companies/ann-industries/agents/marcus/AGENTS.md
+    heartbeat_interval: 5m
     model_tier: T1
 
   # ── Core Tech (L3) ───────────────────────────────────────────────────────────
-  - id: morty
-    label: agent:morty
+  - id: keisha
+    label: agent:keisha
     tier: L3
     role: dev
-    package: companies/ann-industries/agents/morty/AGENTS.md
-    heartbeat_interval: 60s
-    model_tier: T2
-
-  - id: meeseeks
-    label: agent:meeseeks
-    tier: L3
-    role: qa
-    package: companies/ann-industries/agents/meeseeks/AGENTS.md
-    heartbeat_interval: 60s
-    model_tier: T2
-    spawn_only: true
-
-  - id: birdperson
-    label: agent:birdperson
-    tier: L3
-    role: devops
-    package: companies/ann-industries/agents/birdperson/AGENTS.md
-    heartbeat_interval: 60s
-    model_tier: T2
-
-  # ── Quality (L3) ─────────────────────────────────────────────────────────────
-  - id: irie
-    label: agent:irie
-    tier: L3
-    role: quality-gate
-    package: companies/ann-industries/agents/irie/AGENTS.md
-    heartbeat_interval: 60s
+    package: companies/ann-industries/agents/keisha/AGENTS.md
+    heartbeat_interval: 5m
     model_tier: T2
 
   - id: ox
@@ -81,30 +38,66 @@ agents:
     tier: L3
     role: dev
     package: companies/ann-industries/agents/ox/AGENTS.md
-    heartbeat_interval: 60s
+    heartbeat_interval: 5m
     model_tier: T2
 
+  - id: tanisha
+    label: agent:tanisha
+    tier: L3
+    role: qa
+    package: companies/ann-industries/agents/tanisha/AGENTS.md
+    heartbeat_interval: 5m
+    model_tier: T2
+    spawn_only: true
+
+  # ── Operations (L3) ──────────────────────────────────────────────────────────
+  - id: camille
+    label: agent:camille
+    tier: L3
+    role: devops
+    package: companies/ann-industries/agents/camille/AGENTS.md
+    heartbeat_interval: 5m
+    model_tier: T2
+
+  - id: irie
+    label: agent:irie
+    tier: L3
+    role: quality-gate
+    package: companies/ann-industries/agents/irie/AGENTS.md
+    heartbeat_interval: 5m
+    model_tier: T2
+
+  # ── Knowledge (L3) ───────────────────────────────────────────────────────────
+  - id: andre
+    label: agent:andre
+    tier: L3
+    role: documentation
+    package: companies/ann-industries/agents/andre/AGENTS.md
+    heartbeat_interval: 5m
+    model_tier: T2
+
+  # ── Design (L3) ──────────────────────────────────────────────────────────────
   - id: sister-nancy
     label: agent:sister_nancy
     tier: L3
     role: design
     package: companies/ann-industries/agents/sister-nancy/AGENTS.md
-    heartbeat_interval: 60s
+    heartbeat_interval: 5m
     model_tier: T2
 
-  # ── Life OS (L3) ─────────────────────────────────────────────────────────────
-  - id: summer
-    label: agent:summer
+  # ── Guest & Partner (L3) ─────────────────────────────────────────────────────
+  - id: lois
+    label: agent:lois
     tier: L3
-    role: product
-    package: companies/ann-industries/agents/summer/AGENTS.md
-    heartbeat_interval: 60s
+    role: guest-concierge
+    package: companies/ann-industries/agents/lois/AGENTS.md
+    heartbeat_interval: 5m
     model_tier: T2
 
-  - id: squanchy
-    label: agent:squanchy
+  - id: curtis
+    label: agent:curtis
     tier: L3
-    role: growth
-    package: companies/ann-industries/agents/squanchy/AGENTS.md
-    heartbeat_interval: 60s
+    role: partner-ops
+    package: companies/ann-industries/agents/curtis/AGENTS.md
+    heartbeat_interval: 5m
     model_tier: T2
